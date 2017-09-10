@@ -6,8 +6,8 @@ import sys
 
 SLACK_HOST = ''
 SLACK_PATH = ''
+APP_ENVIRONMENT = ''
 HEADERS = {'Content-Type': 'application/json'}
-APP_ENVIRONMENT = '{{APP_ENVIRONMENT}}'
 SLACK_CHANNEL = 'consul-alerts'
 COLORS = {'warning': 'warning', 'critical': 'danger', 'passing': 'good'}
 
@@ -15,7 +15,7 @@ COLORS = {'warning': 'warning', 'critical': 'danger', 'passing': 'good'}
 def construct_payload(check):
     return {
         'channel': SLACK_CHANNEL,
-        'username':  APP_ENVIRONMENTg,
+        'username':  APP_ENVIRONMENT,
         'icon_emoji': ':microscope:',
         'attachments': [{
             'fallback': 'Consul alert - Service: ' + check['ServiceName'] + ', Check: ' + check['Name'] + ', Status: ' +
